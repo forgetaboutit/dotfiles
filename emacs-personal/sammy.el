@@ -1,7 +1,10 @@
 ;;; Sammy.el --- summary
+
 ;;; Commentary:
 
-;;; Ensure all the modules are available, excluding structured-haskell-mode.
+;;; Code:
+
+;; Ensure all the modules are available, excluding structured-haskell-mode.
 (prelude-require-packages '(paredit cljsbuild-mode solarized-theme))
 
 ;; No flyspell anymore (for now)
@@ -10,7 +13,9 @@
 ;; Use solarized
 (load-theme 'solarized-dark t)
 
+;;;
 ;;; Structured Haskell mode
+;;;
 
 ;; Load SHM properly
 (add-to-list 'load-path "/home/sammy/git/structured-haskell-mode/elisp")
@@ -24,9 +29,16 @@
 ;; Configure SHM colors for solarized-dark
 (set-face-background 'shm-current-face "#073642") ; solarized-base02
 
+;;;
 ;;; Paredit
+;;;
 (add-hook 'clojure-mode-hook 'paredit-mode)
+
+;;;
+;;; Ace-jump-mode
+;;;
+(global-set-key (kbd "C-c l") 'ace-jump-line-mode)
+(global-set-key (kbd "C-c c") 'ace-jump-char-mode)
 
 (provide 'sammy)
 ;;; sammy.el ends here
-
