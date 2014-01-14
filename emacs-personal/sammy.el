@@ -40,5 +40,10 @@
 (global-set-key (kbd "C-c l") 'ace-jump-line-mode)
 (global-set-key (kbd "C-c c") 'ace-jump-char-mode)
 
+;;;
+;;; dirtree
+;;;
+(require 'dirtree)
+
 (provide 'sammy)
 ;;; sammy.el ends here
