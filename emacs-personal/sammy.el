@@ -75,5 +75,10 @@
 (global-set-key (kbd "C-x d") 'dirtree)
 (global-set-key (kbd "C-x C-j") 'dirtree-for-buffer)
 
+;;;
+;;; coffee-mode
+;;;
+(custom-set-variables '(coffee-tab-width 2))
+
 (provide 'sammy)
 ;;; sammy.el ends here
