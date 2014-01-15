@@ -17,6 +17,15 @@
 (load-theme 'solarized-dark t)
 
 ;;;
+;;; Standard-deviating keybindings
+;;;
+
+;; Better buffer cycling
+(global-set-key [C-tab] 'previous-buffer)
+(global-set-key [C-S-iso-lefttab] 'next-buffer)
+(global-set-key (kbd "C-S-SPC") 'set-rectangular-region-anchor)
+
+;;;
 ;;; Structured Haskell mode
 ;;;
 
