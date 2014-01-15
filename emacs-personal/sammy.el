@@ -15,6 +15,10 @@
 ;; No flyspell anymore (for now)
 (setq prelude-flyspell nil)
 
+;; No flycheck for SCSS
+(eval-after-load 'flycheck
+  '(setq-default flycheck-disabled-checkers '(scss)))
+
 ;; Use solarized
 (load-theme 'solarized-dark t)
 
