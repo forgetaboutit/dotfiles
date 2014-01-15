@@ -9,6 +9,8 @@
                             cljsbuild-mode
                             solarized-theme
                             multiple-cursors))
+                            multiple-cursors
+                            auto-complete))
 
 ;; No flyspell anymore (for now)
 (setq prelude-flyspell nil)
@@ -57,6 +59,15 @@
 ;;;
 (global-set-key (kbd "C-'") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-\"") 'mc/mark-all-like-this)
+
+;;;
+;;; auto-complete
+;;;
+(require 'auto-complete-config)
+(ac-config-default)
+
+(dolist (mode '(coffee-mode scss-mode))
+  (add-to-list 'ac-modes mode))
 
 ;;;
 ;;; dirtree
