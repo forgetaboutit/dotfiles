@@ -8,7 +8,6 @@
 (prelude-require-packages '(paredit
                             cljsbuild-mode
                             solarized-theme
-                            multiple-cursors))
                             multiple-cursors
                             auto-complete))
 
@@ -30,6 +29,7 @@
 (global-set-key [C-tab] 'previous-buffer)
 (global-set-key [C-S-iso-lefttab] 'next-buffer)
 (global-set-key (kbd "C-S-SPC") 'set-rectangular-region-anchor)
+(global-set-key (kbd "C-c i") 'magit-stash)
 
 ;;;
 ;;; Structured Haskell mode
