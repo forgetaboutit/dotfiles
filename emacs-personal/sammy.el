@@ -4,8 +4,11 @@
 
 ;;; Code:
 
-;; Ensure all the modules are available, excluding structured-haskell-mode.
-(prelude-require-packages '(paredit cljsbuild-mode solarized-theme))
+;; Ensure all the modules are available.
+(prelude-require-packages '(paredit
+                            cljsbuild-mode
+                            solarized-theme
+                            multiple-cursors))
 
 ;; No flyspell anymore (for now)
 (setq prelude-flyspell nil)
@@ -39,6 +42,12 @@
 ;;;
 (global-set-key (kbd "C-c l") 'ace-jump-line-mode)
 (global-set-key (kbd "C-c c") 'ace-jump-char-mode)
+
+;;;
+;;; multiple-cursors
+;;;
+(global-set-key (kbd "C-'") 'mc/mark-next-like-this)
+(global-set-key (kbd "C-\"") 'mc/mark-all-like-this)
 
 ;;;
 ;;; dirtree
