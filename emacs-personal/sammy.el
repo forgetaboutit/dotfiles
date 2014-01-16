@@ -9,7 +9,8 @@
                             cljsbuild-mode
                             solarized-theme
                             multiple-cursors
-                            auto-complete))
+                            auto-complete
+                            expand-region))
 
 ;; No flyspell anymore (for now)
 (setq prelude-flyspell nil)
@@ -62,6 +63,17 @@
 ;;;
 (global-set-key (kbd "C-'") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-\"") 'mc/mark-all-like-this)
+
+;;;
+;;; Pending delete mode
+;;;
+(pending-delete-mode 1)
+
+;;;
+;;; expand-region-mode
+;;;
+(require 'expand-region)
+(global-set-key (kbd "C-@") 'er/expand-region)
 
 ;;;
 ;;; auto-complete
