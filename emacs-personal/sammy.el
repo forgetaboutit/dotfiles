@@ -30,6 +30,7 @@
 (global-set-key [C-tab] 'previous-buffer)
 (global-set-key [C-S-iso-lefttab] 'next-buffer)
 (global-set-key (kbd "C-S-SPC") 'set-rectangular-region-anchor)
+(global-set-key (kbd "M-s l") 'sort-lines)
 
 ;;;
 ;;; Structured Haskell mode
