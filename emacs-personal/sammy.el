@@ -10,7 +10,8 @@
                             solarized-theme
                             multiple-cursors
                             auto-complete
-                            expand-region))
+                            expand-region
+                            fiplr))
 
 ;; No flyspell anymore (for now)
 (setq prelude-flyspell nil)
@@ -31,6 +32,16 @@
 (global-set-key [C-S-iso-lefttab] 'next-buffer)
 (global-set-key (kbd "C-S-SPC") 'set-rectangular-region-anchor)
 (global-set-key (kbd "M-s l") 'sort-lines)
+
+;;;
+;;; Fiplr
+;;;
+(require 'fiplr)
+
+(setq fiplr-root-markers '(".gitmodules" ".git" "generated" "out"))
+(setq fiplr-ignored-globs '((directories (".git"))
+                            (files ("*.png"))))
+(global-set-key (kbd "C-x C-f") 'fiplr-find-file)
 
 ;;;
 ;;; Structured Haskell mode
