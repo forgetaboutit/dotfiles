@@ -11,7 +11,8 @@
                             multiple-cursors
                             auto-complete
                             expand-region
-                            fiplr))
+                            fiplr
+                            emmet-mode))
 
 ;; No flyspell anymore (for now)
 (setq prelude-flyspell nil)
@@ -42,6 +43,17 @@
 (setq fiplr-ignored-globs '((directories (".git"))
                             (files ("*.png"))))
 (global-set-key (kbd "C-x C-f") 'fiplr-find-file)
+
+;;;
+;;; Emmet-mode
+;;;
+(require 'emmet-mode)
+
+(add-hook 'sgml-mode-hook 'emmet-mode)
+(add-hook 'css-mode-hook  'emmet-mode)
+
+;; indent 2 spaces
+(add-hook 'emmet-mode-hook (lambda () (setq emmet-indentation 2)))
 
 ;;;
 ;;; Structured Haskell mode
