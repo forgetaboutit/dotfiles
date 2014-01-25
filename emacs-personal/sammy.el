@@ -17,6 +17,9 @@
 ;; No flyspell anymore (for now)
 (setq prelude-flyspell nil)
 
+;; Please don't pollute my directories! However, this could be dangerous.
+(setq create-lockfiles nil)
+
 ;; No flycheck for SCSS
 (eval-after-load 'flycheck
   '(setq-default flycheck-disabled-checkers '(scss)))
