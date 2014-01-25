@@ -45,7 +45,7 @@
 (setq fiplr-root-markers '(".gitmodules" ".git" "generated" "out"))
 (setq fiplr-ignored-globs '((directories (".git"))
                             (files ("*.png"))))
-(global-set-key (kbd "C-x C-f") 'fiplr-find-file)
+(global-set-key (kbd "C-x f") 'fiplr-find-file)
 
 ;;;
 ;;; Emmet-mode
