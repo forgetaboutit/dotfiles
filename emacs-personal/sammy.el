@@ -48,6 +48,11 @@
 (global-set-key (kbd "C-x f") 'fiplr-find-file)
 
 ;;;
+;;; Dart mode
+;;;
+(require 'dart-mode)
+
+;;;
 ;;; Emmet-mode
 ;;;
 (require 'emmet-mode)
