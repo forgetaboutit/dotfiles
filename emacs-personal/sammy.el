@@ -12,7 +12,8 @@
                             auto-complete
                             expand-region
                             fiplr
-                            emmet-mode))
+                            emmet-mode
+                            cider))
 
 ;; No flyspell anymore (for now)
 (setq prelude-flyspell nil)
@@ -83,6 +84,19 @@
 ;;; Paredit
 ;;;
 (add-hook 'clojure-mode-hook 'paredit-mode)
+
+;;;
+;;; Clojure mode
+;;;
+;; Prevent excessive indentation.
+(setq clojure-defun-style-default-indent t)
+
+;;;
+;;; Cider REPL
+;;;
+;; Enhance REPL with Paredit and rainbow delimiters
+(add-hook 'cider-repl-mode-hook 'paredit-mode)
+(add-hook 'cider-repl-mode-hook 'rainbow-delimiters-mode)
 
 ;;;
 ;;; Ace-jump-mode
