@@ -15,6 +15,9 @@
                             emmet-mode
                             cider))
 
+;; Use a proper font
+(set-default-font "Anonymous Pro Bold 13")
+
 ;; No flyspell anymore (for now)
 (setq prelude-flyspell nil)
 
