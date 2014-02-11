@@ -136,21 +136,9 @@
   (add-to-list 'ac-modes mode))
 
 ;;;
-;;; dirtree
+;;; dired
 ;;;
-(require 'dirtree)
-
-(defun dirtree-for-buffer ()
-  "Open dirtree in the current buffer's directory or the default directory."
-  (interactive)
-  (let (current-file (buffer-file-name))
-    (if current-file
-        (dirtree (file-name-directory current-file) nil)
-      (dirtree default-directory nil))))
-
-;; Dirtree instead of dired
-(global-set-key (kbd "C-x d") 'dirtree)
-(global-set-key (kbd "C-x C-j") 'dirtree-for-buffer)
+(global-set-key (kbd "C-x C-d") 'ido-dired)
 
 ;;;
 ;;; coffee-mode
