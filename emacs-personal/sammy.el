@@ -41,6 +41,8 @@
 (global-set-key (kbd "C-S-SPC") 'set-rectangular-region-anchor)
 (global-set-key (kbd "M-s l") 'sort-lines)
 
+(global-unset-key (kbd "C-z"))          ; Prevent accidential suspending
+
 ;;;
 ;;; Fiplr
 ;;;
