@@ -26,7 +26,7 @@
 
 ;; No flycheck for SCSS
 (eval-after-load 'flycheck
-  '(setq-default flycheck-disabled-checkers '(scss)))
+  '(setq-default flycheck-disabled-checkers '(scss sass)))
 
 ;; Use solarized
 (load-theme 'solarized-dark t)
