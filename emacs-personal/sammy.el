@@ -69,13 +69,25 @@
 (add-hook 'emmet-mode-hook (lambda () (setq emmet-indentation 2)))
 
 ;;;
+;;; Haskell mode
+;;;
+;; Use Haskell-mode specific save
+(setq exec-path (append exec-path '("~/.cabal/bin")))
+
+;; Automatic formatting with stylish-haskell
+(setq haskell-stylish-on-save t)
+
+;;;
 ;;; Structured Haskell mode
 ;;;
-
 ;; Load SHM properly
 (add-to-list 'load-path "/home/sammy/git/structured-haskell-mode/elisp")
 (require 'shm)
 (add-hook 'haskell-mode-hook 'structured-haskell-mode)
+
+;; Use SHM highlighting, so disable global line highlighting.
+(eval-after-load 'structured-haskell-mode
+  '(global-hl-line-mode 0))
 
 ;; Configure SHM executable location
 (setq shm-program-name
