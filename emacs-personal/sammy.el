@@ -43,6 +43,10 @@
 
 (global-unset-key (kbd "C-z"))          ; Prevent accidential suspending
 
+;; Better killing
+(global-set-key (kbd "C-w") 'backward-kill-word)
+(global-set-key (kbd "C-x C-k") 'kill-region)
+
 ;;;
 ;;; Fiplr
 ;;;
