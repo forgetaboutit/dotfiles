@@ -58,13 +58,6 @@
 ;;;
 (require 'dart-mode)
 
-;;;
-;;; Emmet-mode
-;;;
-(require 'emmet-mode)
-
-(add-hook 'sgml-mode-hook 'emmet-mode)
-
 ;; indent 2 spaces
 (add-hook 'emmet-mode-hook (lambda () (setq emmet-indentation 2)))
 
