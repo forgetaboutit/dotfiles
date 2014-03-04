@@ -18,6 +18,9 @@
 ;; Use a proper font
 (set-default-font "Anonymous Pro Bold 13")
 
+;; Gurus don't need no scrollbars.
+(if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
+
 ;; No flyspell anymore (for now)
 (setq prelude-flyspell nil)
 
