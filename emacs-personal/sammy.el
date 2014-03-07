@@ -86,7 +86,7 @@
 (add-hook 'haskell-mode-hook 'structured-haskell-mode)
 
 ;; Use SHM highlighting, so disable global line highlighting.
-(eval-after-load 'structured-haskell-mode
+(eval-after-load 'haskell-mode
   '(global-hl-line-mode 0))
 
 ;; Configure SHM executable location
