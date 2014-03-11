@@ -50,6 +50,19 @@
 (global-set-key (kbd "C-w") 'backward-kill-word)
 (global-set-key (kbd "C-x C-k") 'kill-region)
 
+;; Zap zap zap to char
+(global-set-key (kbd "M-z") 'zap-up-to-char)
+(global-set-key (kbd "s-z") (lambda (char)
+                              (interactive "cZap up to char backwards: ")
+                              (zap-up-to-char -1 char)))
+
+(global-set-key (kbd "M-Z") (lambda (char)
+                              (interactive "cZap to char: ")
+                              (zap-to-char 1 char)))
+(global-set-key (kbd "s-Z") (lambda (char)
+                              (interactive "cZap to char backwards: ")
+                              (zap-to-char -1 char)))
+
 ;;;
 ;;; Fiplr
 ;;;
