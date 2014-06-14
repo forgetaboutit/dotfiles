@@ -87,6 +87,9 @@
 ;; Use Haskell-mode specific save
 (setq exec-path (append exec-path '("~/.cabal/bin")))
 
+;; Use cabal repl to support sandboxes
+(setq haskell-program-name "cabal repl")
+
 ;; Automatic formatting with stylish-haskell
 (setq haskell-stylish-on-save t)
 
