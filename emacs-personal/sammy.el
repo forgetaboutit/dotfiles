@@ -167,6 +167,10 @@
 ;;;
 (global-set-key (kbd "C-x C-d") 'ido-dired)
 
+(add-hook 'dired-mode-hook
+          (lambda ()
+            (local-set-key (kbd "C-c C-l") 'switch-to-haskell)))
+
 ;;;
 ;;; coffee-mode
 ;;;
