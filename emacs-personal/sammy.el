@@ -13,7 +13,9 @@
                             expand-region
                             fiplr
                             emmet-mode
-                            cider))
+                            cider
+                            haml-mode
+                            sass-mode))
 
 ;; Use a proper font
 (set-default-font "Anonymous Pro Bold 13")
@@ -170,6 +172,16 @@
 (add-hook 'dired-mode-hook
           (lambda ()
             (local-set-key (kbd "C-c C-l") 'switch-to-haskell)))
+
+;;;
+;;; haml-mode
+;;;
+(require 'haml-mode)
+
+;;;
+;;; sass-mode
+;;;
+(require 'sass-mode)
 
 ;;;
 ;;; coffee-mode
