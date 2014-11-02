@@ -15,7 +15,8 @@
                             emmet-mode
                             cider
                             haml-mode
-                            sass-mode))
+                            sass-mode
+                            shm))
 
 ;; Use a proper font
 (set-frame-font "Fantasque Sans Mono 13")
@@ -99,7 +100,6 @@
 ;;; Structured Haskell mode
 ;;;
 ;; Load SHM properly
-(add-to-list 'load-path "/home/sammy/git/structured-haskell-mode/elisp")
 (require 'shm)
 (add-hook 'haskell-mode-hook 'structured-haskell-mode)
 
