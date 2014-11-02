@@ -18,7 +18,7 @@
                             sass-mode))
 
 ;; Use a proper font
-(set-default-font "Anonymous Pro Bold 13")
+(set-default-font "Fantasque Sans Mono 13")
 
 ;; Gurus don't need no scrollbars.
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
