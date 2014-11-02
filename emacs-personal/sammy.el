@@ -108,9 +108,7 @@
   '(global-hl-line-mode 0))
 
 ;; Configure SHM executable location
-(setq shm-program-name
-      (concat "/home/sammy/git/structured-haskell-mode/dist/build/"
-              "structured-haskell-mode/structured-haskell-mode"))
+(setq shm-program-name "~/.cabal/bin/structured-haskell-mode")
 
 ;; Configure SHM colors for solarized-dark
 (set-face-background 'shm-current-face "#073642") ; solarized-base02
