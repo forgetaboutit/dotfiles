@@ -1,0 +1,16 @@
+# example user config (see "hg help config" for more info)
+[ui]
+username = Samuel Schuhmacher <forgetaboutit@muhbaasu.de>
+merge = internal:merge
+
+[extensions]
+pager =
+progress =
+color =
+shelve =
+record =
+rebase =
+histedit =
+
+[pager]
+pager = LESS='FRX' less

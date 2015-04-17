@@ -1,0 +1,12 @@
+export EDITOR="emacs";
+
+export HISTSIZE='32768';
+
+export LANG='en_US.UTF-8';
+export LC_ALL='en_US.UTF-8';
+
+# Don't clear the screen after quitting a man page
+export MANPAGER='less -X';
+
+# always enable colored output
+export GREP_OPTIONS='--color=auto';
