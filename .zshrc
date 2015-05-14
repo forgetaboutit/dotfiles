@@ -2,7 +2,7 @@ ZSH=$HOME/.oh-my-zsh
 
 ZSH_THEME="muhbaasu"
 
-plugins=(git ssh-agent cabal)
+plugins=(git ssh-agent cabal zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -20,6 +20,7 @@ PATH=$PATH:$HOME/.rvm/bin:$HOME/.gem/ruby/2.1.0/bin
 
 # aliases
 alias cabt="cabal test --test-option=--color --show-details=always"
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Reattach to tmux, if connected over SSH.
 if [[ "$TMUX" == "" ]]; then
