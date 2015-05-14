@@ -1,6 +1,12 @@
 -- Fix prompt
 :set prompt "λ "
 
+-- Macro for pointfree
+:def pl \str -> return $ ":! pointfree \"" ++ str ++ "\""
+
+-- Macro for pointful
+:def pfl \str -> return $ ":! pointful \"" ++ str ++ "\""
+
 -- Useful extensions
 :set -XPackageImports
 :set -XOverloadedStrings
