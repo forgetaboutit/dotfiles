@@ -20,6 +20,9 @@ PATH=$PATH:$HOME/.rvm/bin:$HOME/.gem/ruby/2.1.0/bin
 
 # aliases
 alias cabt="cabal test --test-option=--color --show-details=always"
+alias cabr="cabal repl"
+alias sl="ls"
+
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Reattach to tmux, if connected over SSH.
