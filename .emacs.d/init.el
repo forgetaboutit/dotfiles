@@ -144,5 +144,9 @@
 (add-hook 'emacs-lisp-mode-hook 'paredit-mode)
 (add-hook 'emacs-lisp-mode-hook 'rainbow-delimiters-mode)
 
+;; Zop to char
+(global-set-key (kbd "M-z") 'zop-up-to-char)
+(global-set-key (kbd "M-Z") 'zop-to-char)
+
 ;; Don't ask for confirmation on symlinks to versioned files
 (setq vc-follow-symlinks nil)
