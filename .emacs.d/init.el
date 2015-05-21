@@ -156,6 +156,7 @@
 (global-set-key (kbd "C-:") 'ace-jump-line-mode)
 
 ;; Ace jump buffer
+(require 'ace-jump-buffer)
 (global-set-key (kbd "C-c '") 'ace-jump-buffer)
 (global-set-key (kbd "C-c ;") 'ace-jump-same-mode-buffers)
 
