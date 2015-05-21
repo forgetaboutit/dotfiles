@@ -76,6 +76,7 @@
 ;; Packages to auto-install
 (defvar muhbaasu-packages
   '(ace-jump-mode
+    multiple-cursors
     paredit
     rainbow-delimiters
     smartparens
@@ -147,6 +148,14 @@
 ;; Zop to char
 (global-set-key (kbd "M-z") 'zop-up-to-char)
 (global-set-key (kbd "M-Z") 'zop-to-char)
+
+;; Ace jump
+(global-set-key (kbd "C-c l") 'ace-jump-line-mode)
+(global-set-key (kbd "C-c c") 'ace-jump-char-mode)
+
+;; Multiple cursors
+(global-set-key (kbd "C-'") 'mc/mark-next-like-this)
+(global-set-key (kbd "C-\"") 'mc/mark-all-like-this)
 
 ;; Don't ask for confirmation on symlinks to versioned files
 (setq vc-follow-symlinks nil)
