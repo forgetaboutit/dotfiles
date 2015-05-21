@@ -1,5 +1,6 @@
 [user]
-	name = Samuel Schuhmacher
-	email = forgetaboutit@muhbaasu.de
+  name = Samuel Schuhmacher
+  email = forgetaboutit@muhbaasu.de
 [alias]
-	co = checkout
+  co = checkout
+  sdiff = diff --staged
