@@ -76,6 +76,8 @@
 ;; Packages to auto-install
 (defvar muhbaasu-packages
   '(ace-jump-mode
+    ace-jump-buffer
+    ace-window
     multiple-cursors
     paredit
     rainbow-delimiters
@@ -150,8 +152,15 @@
 (global-set-key (kbd "M-Z") 'zop-to-char)
 
 ;; Ace jump
-(global-set-key (kbd "C-c l") 'ace-jump-line-mode)
-(global-set-key (kbd "C-c c") 'ace-jump-char-mode)
+(global-set-key (kbd "C-;") 'ace-jump-char-mode)
+(global-set-key (kbd "C-:") 'ace-jump-line-mode)
+
+;; Ace jump buffer
+(global-set-key (kbd "C-c '") 'ace-jump-buffer)
+(global-set-key (kbd "C-c ;") 'ace-jump-same-mode-buffers)
+
+;; Ace window
+(global-set-key (kbd "M-p") 'ace-window)
 
 ;; Multiple cursors
 (global-set-key (kbd "C-'") 'mc/mark-next-like-this)
