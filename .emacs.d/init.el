@@ -139,10 +139,6 @@
 
 (add-hook 'prog-mode-hook 'whitespace-mode)
 
-;; Windmove for quicker navigation between visible buffers
-(require 'windmove)
-(windmove-default-keybindings)
-
 ;; Paredit
 (add-hook 'emacs-lisp-mode-hook 'paredit-mode)
 (add-hook 'emacs-lisp-mode-hook 'rainbow-delimiters-mode)
