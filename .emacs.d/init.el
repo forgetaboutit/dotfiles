@@ -78,6 +78,7 @@
   '(ace-jump-mode
     ace-jump-buffer
     ace-window
+    magit
     multiple-cursors
     paredit
     rainbow-delimiters
@@ -171,3 +172,14 @@
   (advice-add cmd :after
               (lambda (args)
                 (balance-windows))))
+;; Magit
+(require 'magit)
+
+(global-set-key (kbd "C-c m s") 'magit-status)
+
+;; Don't let magit shadow ace-window
+(add-hook 'magit-mode-hook
+          (lambda () (local-unset-key (kbd "M-p"))))
+
+;; Explicitly silence warning about `magit-auto-revert-mode`
+(setq magit-last-seen-setup-instructions "1.4.0")
