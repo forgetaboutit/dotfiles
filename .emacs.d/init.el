@@ -170,7 +170,7 @@
 ;; Automatically balance windows after splitting
 (dolist (cmd '(split-window-below split-window-right))
   (advice-add cmd :after
-              (lambda (args)
+              (lambda (&rest)
                 (balance-windows))))
 ;; Magit
 (require 'magit)
