@@ -25,6 +25,10 @@ alias sl="ls"
 
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+function mkcd() {
+    mkdir -p "$1" && cd "$1"
+}
+
 # Reattach to tmux, if connected over SSH.
 if [[ "$TMUX" == "" ]]; then
   # Attempt to discover a detached session and attach to it;
