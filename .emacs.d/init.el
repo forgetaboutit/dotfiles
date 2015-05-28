@@ -185,8 +185,9 @@
 (global-set-key (kbd "C-c m s") 'magit-status)
 
 ;; Don't let magit shadow ace-window
-(add-hook 'magit-mode-hook
-          (lambda () (local-unset-key (kbd "M-p"))))
+(dolist (hook '(magit-mode-hook erc-mode-hook))
+  (add-hook hook
+            (lambda () (local-unset-key (kbd "M-p")))))
 
 ;; Explicitly silence warning about `magit-auto-revert-mode`
 (setq magit-last-seen-setup-instructions "1.4.0")
