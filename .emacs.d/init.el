@@ -158,7 +158,7 @@
 (global-set-key (kbd "C-c j s") 'ace-jump-same-mode-buffers)
 
 ;; Ace window
-(global-set-key (kbd "M-p") 'ace-window)
+(global-set-key (kbd "M-i") 'ace-window)
 
 ;; Multiple cursors
 (global-set-key (kbd "C-'") 'mc/mark-next-like-this)
@@ -183,11 +183,6 @@
 (require 'magit)
 
 (global-set-key (kbd "C-c m s") 'magit-status)
-
-;; Don't let magit shadow ace-window
-(dolist (hook '(magit-mode-hook erc-mode-hook))
-  (add-hook hook
-            (lambda () (local-unset-key (kbd "M-p")))))
 
 ;; Explicitly silence warning about `magit-auto-revert-mode`
 (setq magit-last-seen-setup-instructions "1.4.0")
