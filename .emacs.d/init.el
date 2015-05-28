@@ -149,13 +149,13 @@
 (global-set-key (kbd "M-Z") 'zop-to-char)
 
 ;; Ace jump
-(global-set-key (kbd "C-;") 'ace-jump-char-mode)
-(global-set-key (kbd "C-:") 'ace-jump-line-mode)
+(global-set-key (kbd "C-c j c") 'ace-jump-char-mode)
+(global-set-key (kbd "C-c j l") 'ace-jump-line-mode)
 
 ;; Ace jump buffer
 (require 'ace-jump-buffer)
-(global-set-key (kbd "C-c '") 'ace-jump-buffer)
-(global-set-key (kbd "C-c ;") 'ace-jump-same-mode-buffers)
+(global-set-key (kbd "C-c j b") 'ace-jump-buffer)
+(global-set-key (kbd "C-c j s") 'ace-jump-same-mode-buffers)
 
 ;; Ace window
 (global-set-key (kbd "M-p") 'ace-window)
