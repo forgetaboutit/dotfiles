@@ -1,7 +1,7 @@
 ;;; init.el --- Forgetaboutit's Emacs config
 
 ;; Base directory of this file
-(defvar config-dir (file-name-directory load-file-name))
+(defvar muhbaasu-config-dir (file-name-directory load-file-name))
 
 ;; Don't accidentially use outdated files
 (setq load-prefer-newer t)
@@ -71,7 +71,7 @@
              '("melpa" . "http://melpa.org/packages/") t)
 
 ;; Define directory for packages
-(setq package-user-dir (expand-file-name "elpa" config-dir))
+(setq package-user-dir (expand-file-name "elpa" muhbaasu-config-dir))
 (package-initialize)
 
 ;; Packages to auto-install
