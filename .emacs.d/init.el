@@ -6,7 +6,8 @@
 ;; Don't accidentially use outdated files
 (setq load-prefer-newer t)
 
-;; Please don't pollute my directories!  However, this could be dangerous.
+;; Please don't pollute my directories!  This could be dangerous, however,
+;; in a multi-user environment where multiple users edit the same file.
 (setq create-lockfiles nil)
 
 ;; Store backup and autosave files in temp directory
