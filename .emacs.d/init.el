@@ -3,6 +3,9 @@
 ;; Base directory of this file
 (defvar muhbaasu-config-dir (file-name-directory load-file-name))
 
+;; Directory for save files
+(defvar muhbaasu-savefile-dir (expand-file-name "savefile" muhbaasu-config-dir))
+
 ;; Don't accidentially use outdated files
 (setq load-prefer-newer t)
 
@@ -79,11 +82,14 @@
   '(ace-jump-mode
     ace-jump-buffer
     ace-window
+    flx-ido                             ; Fuzzy matching for ido
+    ido-ubiquitous
     magit
     multiple-cursors
     paredit
     rainbow-delimiters
     smartparens
+    smex                                ; Replacement for M-x
     solarized-theme
     zop-to-char))
 
@@ -160,6 +166,39 @@
 
 ;; Ace window
 (global-set-key (kbd "M-i") 'ace-window)
+
+;; ido
+(require 'ido)
+(require 'ido-ubiquitous)
+(require 'flx-ido)
+
+(let ((ido-history-file (expand-file-name "ido.hist" muhbaasu-savefile-dir)))
+  (setq ido-enable-prefix nil
+      ido-enable-flex-matching t
+      ido-create-new-buffer 'always
+      ido-use-filename-at-point 'guess
+      ido-max-prospects 20
+      ido-default-file-method 'selected-window
+      ido-auto-merge-work-directories-length -1
+      ido-save-directory-list-file ido-history-file))
+
+(ido-mode +1)
+(ido-ubiquitous-mode +1)
+
+;; Smarter fuzzy matching for ido
+(flx-ido-mode +1)
+
+;; Disable ido faces to see flx highlights
+(setq ido-use-faces nil)
+
+;; smex
+(require 'smex)
+
+(setq smex-save-file (expand-file-name ".smex-items" muhbaasu-savefile-dir))
+(smex-initialize)
+
+(global-set-key (kbd "M-x") 'smex)
+(global-set-key (kbd "M-X") 'smex-major-mode-commands)
 
 ;; Multiple cursors
 (global-set-key (kbd "C-'") 'mc/mark-next-like-this)
