@@ -167,12 +167,6 @@
 ;; Don't ask for confirmation on symlinks to versioned files
 (setq vc-follow-symlinks nil)
 
-;; Automatically balance windows after splitting
-(dolist (cmd '(split-window-below split-window-right))
-  (advice-add cmd :after
-              (lambda (&rest)
-                (balance-windows))))
-
 ;; Join lines
 (global-set-key (kbd "M-j")
                 (lambda ()
