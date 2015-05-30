@@ -6,6 +6,9 @@
 ;; Directory for save files
 (defvar muhbaasu-savefile-dir (expand-file-name "savefile" muhbaasu-config-dir))
 
+;; Add modules to load path
+(add-to-list 'load-path (expand-file-name "modules" muhbaasu-config-dir))
+
 ;; Don't accidentially use outdated files
 (setq load-prefer-newer t)
 
@@ -83,6 +86,7 @@
     ace-jump-buffer
     ace-window
     flx-ido                             ; Fuzzy matching for ido
+    haskell-mode
     ido-ubiquitous
     magit
     multiple-cursors
@@ -224,3 +228,6 @@
 
 ;; Explicitly silence warning about `magit-auto-revert-mode`
 (setq magit-last-seen-setup-instructions "1.4.0")
+
+;; Load modules
+(require 'muhbaasu-haskell)
