@@ -146,6 +146,7 @@
                           :background nil))
 
 (add-hook 'prog-mode-hook 'whitespace-mode)
+(add-hook 'before-save-hook 'whitespace-cleanup)
 
 ;; Paredit
 (add-hook 'emacs-lisp-mode-hook 'paredit-mode)
