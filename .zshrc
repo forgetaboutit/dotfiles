@@ -20,8 +20,13 @@ PATH=$PATH:$HOME/.rvm/bin:$HOME/.gem/ruby/2.1.0/bin
 
 # aliases
 alias cabt="cabal test --test-option=--color --show-details=always"
-alias cabr="cabal repl"
 alias sl="ls"
+
+if which ghci-ng >/dev/null; then
+    alias cabr="cabal repl --with-ghc=ghci-ng"
+else
+    alias cabr="cabal repl"
+fi
 
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
