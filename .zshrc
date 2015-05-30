@@ -30,6 +30,11 @@ fi
 
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+function def-cabal-install() {
+    cabal install -j alex happy haskell-src-exts
+    cabal install -j haddock hdevtools hlint pointfree stylish-haskell
+}
+
 function mkcd() {
     mkdir -p "$1" && cd "$1"
 }
