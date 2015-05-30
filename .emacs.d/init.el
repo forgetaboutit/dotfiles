@@ -192,6 +192,9 @@
 ;; Disable ido faces to see flx highlights
 (setq ido-use-faces nil)
 
+;; Unbind `ido-list-directory', which is kinda useless
+(global-key-set (kbd "C-x C-d") 'ido-dired)
+
 ;; smex
 (require 'smex)
 
