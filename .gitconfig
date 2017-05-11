@@ -4,3 +4,12 @@
 [alias]
   co = checkout
   sdiff = diff --staged
+[push]
+  # Always push branch to remote branch with the same name
+  default = current
+[branch]
+  # Automatically track the starting branch
+  autosetupmerge = always
+
+  # Always perform a rebase on pull, not a merge
+  autosetuprebase = always
