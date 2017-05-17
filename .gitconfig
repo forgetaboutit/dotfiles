@@ -4,6 +4,9 @@
 [alias]
   co = checkout
   sdiff = diff --staged
+[fetch]
+  # Always run fetch with `--prune`
+  prune = true
 [push]
   # Always push branch to remote branch with the same name
   default = current
