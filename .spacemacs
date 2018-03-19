@@ -35,7 +35,8 @@ values."
      spell-checking
      syntax-checking
      version-control
-     haskell
+     (haskell :variables
+              haskell-enable-hindent-style "johan-tibell")
      magit
      muhbaasu
      )
