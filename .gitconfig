@@ -1,9 +1,13 @@
 [user]
   name = Samuel Schuhmacher
-  email = forgetaboutit@muhbaasu.de
+  email = post@samuel-schuhmacher.de
+  signingkey = 441CA6ABF67CF1F78B7D789FAF6DF102AF67F697
 [alias]
   co = checkout
   sdiff = diff --staged
+  ci = commit
+  st = status
+  po = push origin
 [fetch]
   # Always run fetch with `--prune`
   prune = true
@@ -16,3 +20,5 @@
 
   # Always perform a rebase on pull, not a merge
   autosetuprebase = always
+[commit]
+  gpgsign = true
