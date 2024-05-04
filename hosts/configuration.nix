@@ -150,6 +150,7 @@
     ## Programming
     # NodeJS
     #nodejs_21
+    inkscape-with-extensions
 
     # tree-sitter CLI tools
     tree-sitter
