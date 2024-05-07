@@ -18,10 +18,6 @@
     hardware.url = "github:nixos/nixos-hardware";
 
     # Nix-managed neovim
-    #nixneovim = {
-    #  url = "github:nixneovim/nixneovim";
-    #  inputs.nixpkgs.follows = "nixpkgs";
-    #};
     nixvim = {
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -35,25 +31,19 @@
   outputs = {
     self,
     nixpkgs,
-    hardware,
     home-manager,
-    flake-utils,
-    #nixneovim,
     nixvim,
     ...
   } @ inputs: let
     inherit (self) outputs;
     lib = nixpkgs.lib // home-manager.lib;
     systems = ["x86_64-linux"];
-    forEachSystem = f: lib.genAttrs systems (system: f pkgsFor.${system});
     pkgsFor = lib.genAttrs systems (system:
       import nixpkgs {
         inherit system;
         config.allowUnfree = true;
         overlays = [
-          #nixneovim.overlays.default
           inputs.neovim-nightly.overlay
-          #nixvim.nixosModules.nixvim
         ];
       });
   in {
@@ -78,7 +68,6 @@
           inherit inputs outputs;
         };
         modules = [
-          #nixneovim.nixosModules.default
           nixvim.homeManagerModules.nixvim
           ./home/home.nix
         ];
