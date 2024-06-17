@@ -68,104 +68,122 @@
     pulse.enable = true;
   };
 
+  virtualisation.podman = {
+    enable = true;
+    dockerCompat = true;
+    dockerSocket = {
+      enable = true;
+    };
+  };
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    wget
-    git
-    lazygit
-    alacritty
-    spotify
-    htop
-    btop
-    keepass
-    ntfs3g
-    nvtopPackages.full
+  environment.systemPackages =
+    [inputs.agenix.packages.x86_64-linux.default]
+    ++ (with pkgs; [
+      protonvpn-gui
+      brave
+      flutter
+      androidStudioPackages.beta
+      (jetbrains.plugins.addPlugins jetbrains.rider ["github-copilot" "ideavim" "nixidea"])
+      dotnetCorePackages.dotnet_8.sdk
+      chromium
+      wget
+      git
+      lazygit
+      alacritty
+      spotify
+      htop
+      btop
+      keepass
+      ntfs3g
+      nvtopPackages.full
 
-    ## Rusty system tools
-    # better `cat`
-    bat
-    # better `cat`
-    ripgrep
-    # better `find`
-    fd
-    # better `ls`
-    lsd
-    # show disk usage
-    dust
-    diskonaut
-    # show languages and LoC
-    tokei
-    # Terminal profiling tool
-    hyperfine
-    # Show network usage per process
-    bandwhich
-    # diff tool
-    delta
+      ## Rusty system tools
+      # better `cat`
+      bat
+      # better `cat`
+      ripgrep
+      # better `find`
+      fd
+      # better `ls`
+      lsd
+      # show disk usage
+      dust
+      diskonaut
+      # show languages and LoC
+      tokei
+      # Terminal profiling tool
+      hyperfine
+      # Show network usage per process
+      bandwhich
+      # diff tool
+      delta
 
-    nmap
+      nmap
 
-    sshfs
+      sshfs
 
-    steam
+      steam
+      discord
 
-    ## Better terminal tooling
-    # Nice shell
-    zsh
+      ## Better terminal tooling
+      # Nice shell
+      zsh
 
-    # Fetch-tools showing system info
-    pfetch
-    neofetch
-    fastfetch
-    cpufetch
+      # Fetch-tools showing system info
+      pfetch
+      neofetch
+      fastfetch
+      cpufetch
 
-    # Nice & fast terminal prompt
-    starship
+      # Nice & fast terminal prompt
+      starship
 
-    # Fast file search
-    fzf
+      # Fast file search
+      fzf
 
-    # Tool to show file types
-    file
+      # Tool to show file types
+      file
 
-    # Better cd
-    zoxide
+      # Better cd
+      zoxide
 
-    # Clipboard for Wayland
-    wl-clipboard
+      # Clipboard for Wayland
+      wl-clipboard
 
-    # Clipboard for xserver
-    xclip
+      # Clipboard for xserver
+      xclip
 
-    # Screenshot utility
-    shotman
+      # Screenshot utility
+      shotman
 
-    # JSON query tool
-    jq
+      # JSON query tool
+      jq
 
-    # .zip extractor
-    unzip
+      # .zip extractor
+      unzip
 
-    ## Programming
-    # NodeJS
-    #nodejs_21
-    inkscape-with-extensions
+      ## Programming
+      # NodeJS
+      #nodejs_21
+      inkscape-with-extensions
 
-    # tree-sitter CLI tools
-    tree-sitter
+      # tree-sitter CLI tools
+      tree-sitter
 
-    # Rust tooling
-    cargo
+      # Rust tooling
+      cargo
 
-    # Neovim: necessary for treesitter grammars and lua-rocks
-    #gcc_multi
-    #gnumake
-    #cmake
-    #luajit
-    #luajitPackages.luarocks-nix
+      # Neovim: necessary for treesitter grammars and lua-rocks
+      #gcc_multi
+      #gnumake
+      #cmake
+      #luajit
+      #luajitPackages.luarocks-nix
 
-    #lua-language-server
-  ];
+      #lua-language-server
+    ]);
 
   # globally default to zsh
   users.defaultUserShell = pkgs.zsh;
