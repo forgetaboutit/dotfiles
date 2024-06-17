@@ -16,7 +16,6 @@ let
 
       gpg.enable = true;
       jq.enable = true;
-      ssh.enable = true;
 
       direnv = {
         enable = true;
@@ -31,6 +30,7 @@ in [
   ./neovim.nix
   ./tmux.nix
   ./wezterm.nix
+  ./ssh-client.nix
   ./zsh.nix
   more
 ]

@@ -69,8 +69,28 @@
           inherit inputs outputs;
         };
         modules = [
+          agenix.nixosModules.default
           ./hosts/configuration.nix
           ./hosts/users/tau-19
+        ];
+      };
+
+      muhbaasu = lib.nixosSystem {
+        specialArgs = {
+          inherit inputs outputs;
+        };
+        modules = [
+          agenix.nixosModules.default
+          ./hosts/users/muhbaasu
+        ];
+      };
+
+      muhbaasu-bootstrap = lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          disko.nixosModules.disko
+          agenix.nixosModules.default
+          ./hosts/bootstrap/muhbaasu/configuration.nix
         ];
       };
     };
