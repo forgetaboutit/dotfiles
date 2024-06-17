@@ -22,6 +22,11 @@ let
         enableZshIntegration = true;
         nix-direnv.enable = true;
       };
+
+      zoxide = {
+        enable = true;
+        enableZshIntegration = true;
+      };
     };
   };
 in [
