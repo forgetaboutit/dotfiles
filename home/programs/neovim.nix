@@ -63,6 +63,9 @@
     Window = "";
     WordFile = "󰈭";
   };
+  helpers = {
+    mkRaw = str: {__raw = str;};
+  };
   repeatChar = char: count: builtins.concatStringsSep "" (builtins.genList (_: char) count);
   getIcon = {
     name,
@@ -220,8 +223,7 @@ in {
     keymaps = [
       # Tab navigation
       {
-        action = "function() vim.cmd.tabnext() end";
-        lua = true;
+        action = helpers.mkRaw "function() vim.cmd.tabnext() end";
         key = "]t";
         mode = ["n"];
         options = {
@@ -229,8 +231,7 @@ in {
         };
       }
       {
-        action = "function() vim.cmd.tabprevious() end";
-        lua = true;
+        action = helpers.mkRaw "function() vim.cmd.tabprevious() end";
         key = "[t";
         mode = ["n"];
         options = {
@@ -239,8 +240,7 @@ in {
       }
       # Telescope
       {
-        action = ''function() require("telescope.builtin").resume() end'';
-        lua = true;
+        action = helpers.mkRaw ''function() require("telescope.builtin").resume() end'';
         key = "<leader>f<CR>";
         mode = ["n"];
         options = {
@@ -248,8 +248,7 @@ in {
         };
       }
       {
-        action = ''function() require("telescope.builtin").buffers() end'';
-        lua = true;
+        action = helpers.mkRaw ''function() require("telescope.builtin").buffers() end'';
         key = "<leader>fb";
         mode = ["n"];
         options = {
@@ -257,8 +256,7 @@ in {
         };
       }
       {
-        action = ''function() require("telescope.builtin").grep_string() end'';
-        lua = true;
+        action = helpers.mkRaw ''function() require("telescope.builtin").grep_string() end'';
         key = "<leader>fc";
         mode = ["n"];
         options = {
@@ -266,8 +264,7 @@ in {
         };
       }
       {
-        action = ''function() require("telescope.builtin").commands() end'';
-        lua = true;
+        action = helpers.mkRaw ''function() require("telescope.builtin").commands() end'';
         key = "<leader>fC";
         mode = ["n"];
         options = {
@@ -275,8 +272,7 @@ in {
         };
       }
       {
-        action = ''function() require("telescope.builtin").find_files() end'';
-        lua = true;
+        action = helpers.mkRaw ''function() require("telescope.builtin").find_files() end'';
         key = "<leader>ff";
         mode = ["n"];
         options = {
@@ -284,8 +280,7 @@ in {
         };
       }
       {
-        action = ''function() require("telescope.builtin").find_files { hidden = true, no_ignore = true } end'';
-        lua = true;
+        action = helpers.mkRaw ''function() require("telescope.builtin").find_files { hidden = true, no_ignore = true } end'';
         key = "<leader>fF";
         mode = ["n"];
         options = {
@@ -293,8 +288,7 @@ in {
         };
       }
       {
-        action = ''function() require("telescope.builtin").help_tags() end'';
-        lua = true;
+        action = helpers.mkRaw ''function() require("telescope.builtin").help_tags() end'';
         key = "<leader>fh";
         mode = ["n"];
         options = {
@@ -302,8 +296,7 @@ in {
         };
       }
       {
-        action = ''function() require("telescope.builtin").keymaps() end'';
-        lua = true;
+        action = helpers.mkRaw ''function() require("telescope.builtin").keymaps() end'';
         key = "<leader>fk";
         mode = ["n"];
         options = {
@@ -311,8 +304,7 @@ in {
         };
       }
       {
-        action = ''function() require("telescope.builtin").man_pages() end'';
-        lua = true;
+        action = helpers.mkRaw ''function() require("telescope.builtin").man_pages() end'';
         key = "<leader>fm";
         mode = ["n"];
         options = {
@@ -320,8 +312,7 @@ in {
         };
       }
       {
-        action = ''function() require("telescope.builtin").oldfiles() end'';
-        lua = true;
+        action = helpers.mkRaw ''function() require("telescope.builtin").oldfiles() end'';
         key = "<leader>fo";
         mode = ["n"];
         options = {
@@ -329,8 +320,7 @@ in {
         };
       }
       {
-        action = ''function() require("telescope.builtin").registers() end'';
-        lua = true;
+        action = helpers.mkRaw ''function() require("telescope.builtin").registers() end'';
         key = "<leader>fr";
         mode = ["n"];
         options = {
@@ -338,8 +328,7 @@ in {
         };
       }
       {
-        action = ''function() require("telescope.builtin").colorscheme { enable_preview = true } end'';
-        lua = true;
+        action = helpers.mkRaw ''function() require("telescope.builtin").colorscheme { enable_preview = true } end'';
         key = "<leader>ft";
         mode = ["n"];
         options = {
@@ -347,8 +336,7 @@ in {
         };
       }
       {
-        action = ''function() require("telescope.builtin").live_grep() end'';
-        lua = true;
+        action = helpers.mkRaw ''function() require("telescope.builtin").live_grep() end'';
         key = "<leader>fw";
         mode = ["n"];
         options = {
@@ -357,8 +345,7 @@ in {
       }
       # Harpoon
       {
-        action = ''function() require("harpoon"):list():add() end'';
-        lua = true;
+        action = helpers.mkRaw ''function() require("harpoon"):list():add() end'';
         key = "<leader>a";
         mode = ["n"];
         options = {
@@ -366,12 +353,11 @@ in {
         };
       }
       {
-        action = ''
+        action = helpers.mkRaw ''
           function()
             local harpoon = require("harpoon")
             harpoon.ui:toggle_quick_menu(harpoon:list())
           end'';
-        lua = true;
         key = "<C-e>";
         mode = ["n"];
         options = {
@@ -379,8 +365,7 @@ in {
         };
       }
       {
-        action = ''function() require("harpoon"):list():select(1) end'';
-        lua = true;
+        action = helpers.mkRaw ''function() require("harpoon"):list():select(1) end'';
         key = "<C-h>";
         mode = ["n"];
         options = {
@@ -388,8 +373,7 @@ in {
         };
       }
       {
-        action = ''function() require("harpoon"):list():select(2) end'';
-        lua = true;
+        action = helpers.mkRaw ''function() require("harpoon"):list():select(2) end'';
         key = "<C-t>";
         mode = ["n"];
         options = {
@@ -397,8 +381,7 @@ in {
         };
       }
       {
-        action = ''function() require("harpoon"):list():select(3) end'';
-        lua = true;
+        action = helpers.mkRaw ''function() require("harpoon"):list():select(3) end'';
         key = "<C-n>";
         mode = ["n"];
         options = {
@@ -406,8 +389,7 @@ in {
         };
       }
       {
-        action = ''function() require("harpoon"):list():select(4) end'';
-        lua = true;
+        action = helpers.mkRaw ''function() require("harpoon"):list():select(4) end'';
         key = "<C-s>";
         mode = ["n"];
         options = {
@@ -415,8 +397,7 @@ in {
         };
       }
       {
-        action = ''function() require("harpoon"):list():replace_at(1) end'';
-        lua = true;
+        action = helpers.mkRaw ''function() require("harpoon"):list():replace_at(1) end'';
         key = "<leader><C-h>";
         mode = ["n"];
         options = {
@@ -424,8 +405,7 @@ in {
         };
       }
       {
-        action = ''function() require("harpoon"):list():replace_at(2) end'';
-        lua = true;
+        action = helpers.mkRaw ''function() require("harpoon"):list():replace_at(2) end'';
         key = "<leader><C-t>";
         mode = ["n"];
         options = {
@@ -433,8 +413,7 @@ in {
         };
       }
       {
-        action = ''function() require("harpoon"):list():replace_at(3) end'';
-        lua = true;
+        action = helpers.mkRaw ''function() require("harpoon"):list():replace_at(3) end'';
         key = "<leader><C-n>";
         mode = ["n"];
         options = {
@@ -442,8 +421,7 @@ in {
         };
       }
       {
-        action = ''function() require("harpoon"):list():replace_at(4) end'';
-        lua = true;
+        action = helpers.mkRaw ''function() require("harpoon"):list():replace_at(4) end'';
         key = "<leader><C-s>";
         mode = ["n"];
         options = {
@@ -538,8 +516,7 @@ in {
       }
       # Format current buffer
       {
-        action = "function() vim.lsp.format() end";
-        lua = true;
+        action = helpers.mkRaw ''function() vim.lsp.format() end'';
         key = "<leader>fg";
         mode = "n";
         options = {
@@ -795,11 +772,11 @@ in {
 
   #        # NeoTree
   #        "<>e" = {
-  #          action = ''"<cmd>Neotree toggle<cr>"'';
+  #          action = helpers.mkRaw ''"<cmd>Neotree toggle<cr>"'';
   #          desc = "Toggle explorer";
   #        };
   #        "<leader>o" = {
-  #          action = ''
+  #          action = helpers.mkRaw ''
   #            function()
   #              if vim.bo.filetype == "neo-tree" then
   #                vim.cmd.wincmd "p"
@@ -810,47 +787,47 @@ in {
   #          desc = "Toggle explorer focus";
   #        };
   #        "<leader>f<CR>" = {
-  #          action = ''function() require("telescope.builtin").resume() end'';
+  #          action = helpers.mkRaw ''function() require("telescope.builtin").resume() end'';
   #          desc = "Resume previous search";
   #        };
   #        "<leader>fb" = {
-  #          action = ''function() require("telescope.builtin").buffers() end'';
+  #          action = helpers.mkRaw ''function() require("telescope.builtin").buffers() end'';
   #          desc = "Find buffers";
   #        };
   #        "<leader>fc" = {
-  #          action = ''function() require("telescope.builtin").grep_string() end'';
+  #          action = helpers.mkRaw ''function() require("telescope.builtin").grep_string() end'';
   #          desc = "Find word under cursor";
   #        };
   #        "<leader>fC" = {
-  #          action = ''function() require("telescope.builtin").commands() end'';
+  #          action = helpers.mkRaw ''function() require("telescope.builtin").commands() end'';
   #          desc = "Find commands";
   #        };
   #        "<leader>ff" = {
-  #          action = ''function() require("telescope.builtin").find_files() end'';
+  #          action = helpers.mkRaw ''function() require("telescope.builtin").find_files() end'';
   #          desc = "Find files";
   #        };
   #        "<leader>fF" = {
-  #          action = ''function() require("telescope.builtin").find_files { hidden = true, no_ignore = true } end'';
+  #          action = helpers.mkRaw ''function() require("telescope.builtin").find_files { hidden = true, no_ignore = true } end'';
   #          desc = "Find all files";
   #        };
   #        "<leader>fh" = {
-  #          action = ''function() require("telescope.builtin").help_tags() end'';
+  #          action = helpers.mkRaw ''function() require("telescope.builtin").help_tags() end'';
   #          desc = "Find help";
   #        };
   #        "<leader>fk" = {
-  #          action = ''function() require("telescope.builtin").keymaps() end'';
+  #          action = helpers.mkRaw ''function() require("telescope.builtin").keymaps() end'';
   #          desc = "Find keymaps";
   #        };
   #        "<leader>fm" = {
-  #          action = ''function() require("telescope.builtin").man_pages() end'';
+  #          action = helpers.mkRaw ''function() require("telescope.builtin").man_pages() end'';
   #          desc = "Find man";
   #        };
   #        "<leader>fo" = {
-  #          action = ''function() require("telescope.builtin").oldfiles() end'';
+  #          action = helpers.mkRaw ''function() require("telescope.builtin").oldfiles() end'';
   #          desc = "Find history";
   #        };
   #        "<leader>fr" = {
-  #          action = ''function() require("telescope.builtin").registers() end'';
+  #          action = helpers.mkRaw ''function() require("telescope.builtin").registers() end'';
   #          desc = "Find registers";
   #        };
   #        #  if is_available "nvim-notify" then

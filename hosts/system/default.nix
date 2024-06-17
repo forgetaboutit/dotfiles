@@ -2,14 +2,14 @@
   pkgs,
   lib,
   ...
-}:
-with lib; {
+}: {
   environment.systemPackages = with pkgs; [
     wget
     curl
     git
 
     lua
+    # Terminal emulator
     wezterm
 
     # nix formatting tool

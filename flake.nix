@@ -11,6 +11,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # secret management
+    agenix = {
+      url = "github:ryantm/agenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # flake building utilities
     flake-utils.url = "github:numtide/flake-utils";
 
@@ -25,6 +31,12 @@
 
     neovim-nightly = {
       url = "github:nix-community/neovim-nightly-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
@@ -33,6 +45,8 @@
     nixpkgs,
     home-manager,
     nixvim,
+    disko,
+    agenix,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -43,7 +57,7 @@
         inherit system;
         config.allowUnfree = true;
         overlays = [
-          inputs.neovim-nightly.overlay
+          inputs.neovim-nightly.overlays.default
         ];
       });
   in {
