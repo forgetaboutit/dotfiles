@@ -49,9 +49,8 @@
     };
   };
 
-  hardware.opengl = {
+  hardware.graphics = {
     enable = true;
-    driSupport = true;
   };
 
   # Enable CUPS to print documents.
