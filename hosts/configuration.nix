@@ -4,7 +4,32 @@
   lib,
   pkgs,
   ...
-}: {
+}: let
+  riderWithPlugins = pkgs.jetbrains.plugins.addPlugins pkgs.jetbrains.rider [
+    "github-copilot"
+    "ideavim"
+    "nixidea"
+  ];
+  riderExtraPath = with pkgs; [
+    dotnetCorePackages.sdk_8_0_3xx
+    dotnetPackages.Nuget
+    mono
+    msbuild
+  ];
+  riderExtraLib = [];
+  # Shamelessly stolen from https://huantian.dev/blog/unity3d-rider-nixos/
+  rider = riderWithPlugins.overrideAttrs (attrs: {
+    postInstall =
+      ''
+        mv $out/bin/rider $out/bin/.rider-toolless
+        makeWrapper $out/bin/.rider-toolless $out/bin/rider \
+          --argv0 rider \
+          --prefix PATH : "${lib.makeBinPath riderExtraPath}" \
+          --prefix LD_LIBRARY_PATH : "${lib.makeLibraryPath riderExtraLib}"
+      ''
+      + attrs.postInstall or "";
+  });
+in {
   imports = [
     ./system
   ];
@@ -78,14 +103,16 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages =
-    [inputs.agenix.packages.x86_64-linux.default]
+    [
+      inputs.agenix.packages.x86_64-linux.default
+      rider
+    ]
     ++ (with pkgs; [
       protonvpn-gui
       brave
       flutter
       androidStudioPackages.beta
-      (jetbrains.plugins.addPlugins jetbrains.rider ["github-copilot" "ideavim" "nixidea"])
-      dotnetCorePackages.dotnet_8.sdk
+      dotnetCorePackages.sdk_8_0_3xx
       chromium
       wget
       git
