@@ -32,6 +32,7 @@ let
 in [
   ./alacritty.nix
   ./git.nix
+  ./hyprland.nix
   ./neovim.nix
   ./tmux.nix
   ./wezterm.nix

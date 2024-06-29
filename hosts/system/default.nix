@@ -30,6 +30,7 @@
   imports = [
     ./fonts.nix
     ./gnome.nix
+    ./hyprland.nix
     ./shell.nix
   ];
 }
