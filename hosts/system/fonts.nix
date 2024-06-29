@@ -1,7 +1,13 @@
 {pkgs, ...}: {
   fonts.packages = with pkgs; [
-    nerdfonts
     font-awesome
+    (nerdfonts.override {
+      fonts = [
+        "FiraCode"
+        "Monaspace"
+      ];
+    })
+    montserrat
     vollkorn
   ];
 }
