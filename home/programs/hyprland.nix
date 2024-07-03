@@ -22,27 +22,79 @@ in {
         };
 
         xwayland = {
-          enable = true;
+          enable = false;
         };
 
         settings = {
           "$mod" = "SUPER";
 
           general = {
-            gaps_in = 5;
-            gaps_out = 5;
+            gaps_in = 7;
+            gaps_out = 7;
             border_size = 1;
 
             allow_tearing = true;
             resize_on_border = true;
           };
 
-          bind = [
+          input = {
+            kb_layout = "us";
+            kb_variant = "alt-intl";
+            kb_options = "caps:escape";
+            numlock_by_default = true;
+          };
+
+          misc = {
+            disable_hyprland_logo = true;
+            force_default_wallpaper = 1;
+          };
+
+          decoration = {
+            rounding = 10;
+          };
+
+          cursor = {
+            no_hardware_cursors = true;
+            default_monitor = "DP-2";
+          };
+
+          # Nvidia compatibility
+          env = [
+            "LIBVA_DRIVER_NAME,nvidia"
+            "XDG_SESSION_TYPE,wayland"
+            "GBM_BACKEND,nvidia-drm"
+            "__GLX_VENDOR_LIBRARY_NAME,nvidia"
+            "NVD_BACKEND,direct"
+          ];
+
+          monitor = [
+            "DP-1,2560x1440@144,2560x0,1"
+            "DP-2,2560x1440@144,0x0,1"
+            "DP-3,2560x1440@144,-2560x0,1"
+          ];
+
+          bindd = [
             # Window management
-            "$mod, Q, killactive,"
+            "$mod,Q,Close the active window,killactive,"
+            "$mod,H,Focuses the workspace to the left,movefocus,l"
+            "$mod,L,Focuses the workspace to the right,movefocus,r"
+            "$mod&Shift_L,H,Moves the current window to the workspace to the left,movewindow,l"
+            "$mod&Shift_L,L,Moves the current window to the workspace to the right,movewindow,r"
+            "$mod,K,Toggles the focused window's fullscreen state,fullscreen,1"
+            "$mod,1,Focuses monitor 1,focusmonitor,2"
+            "$mod,2,Focuses monitor 2,focusmonitor,1"
+            "$mod,3,Focuses monitor 3,focusmonitor,0"
 
             # Terminal
-            "$mod, Return, exec, ${terminal}"
+            "$mod,Return,Open a terminal,exec,${terminal}"
+
+            # Rofi
+            "SUPER,D,Open the rofi menu,exec,rofi -show drun"
+          ];
+
+          layerrule = [
+            # No annoying resize animations while searching rofi
+            "noanim,^(rofi)$"
           ];
         };
       };
