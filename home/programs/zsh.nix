@@ -11,6 +11,17 @@
       cd = "z";
     };
 
+    history = {
+      expireDuplicatesFirst = true;
+      # Save timestamps
+      extended = true;
+      ignoreDups = true;
+      ignoreAllDups = true;
+      ignoreSpace = true;
+      size = 5000;
+      share = true;
+    };
+
     # zsh uses scancodes for key bindings. Hint: `sudo showkey -a` shows the
     # currently pressed keys. Alternatively, the Arch wiki is a good source
     # on additional info: https://wiki.archlinux.org/title/Keyboard_input
