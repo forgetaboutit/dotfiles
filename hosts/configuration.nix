@@ -10,6 +10,7 @@
     "ideavim"
     "nixidea"
   ];
+
   riderExtraPath = with pkgs; [
     dotnetCorePackages.sdk_8_0_3xx
     dotnetPackages.Nuget
@@ -26,6 +27,28 @@
           --argv0 rider \
           --prefix PATH : "${lib.makeBinPath riderExtraPath}" \
           --prefix LD_LIBRARY_PATH : "${lib.makeLibraryPath riderExtraLib}"
+      ''
+      + attrs.postInstall or "";
+  });
+
+  golandWithPlugins = pkgs.jetbrains.plugins.addPlugins pkgs.jetbrains.goland [
+    "github-copilot"
+    "ideavim"
+    "nixidea"
+  ];
+
+  golandExtraPath = with pkgs; [
+    go
+  ];
+  golandExtraLib = [];
+  goland = golandWithPlugins.overrideAttrs (attrs: {
+    postInstall =
+      ''
+        mv $out/bin/goland $out/bin/.goland-toolless
+        makeWrapper $out/bin/.goland-toolless $out/bin/goland \
+          --argv0 goland \
+          --prefix PATH : "${lib.makeBinPath golandExtraPath}" \
+          --prefix LD_LIBRARY_PATH : "${lib.makeLibraryPath golandExtraLib}"
       ''
       + attrs.postInstall or "";
   });
@@ -106,6 +129,7 @@ in {
     [
       inputs.agenix.packages.x86_64-linux.default
       rider
+      goland
     ]
     ++ (with pkgs; [
       protonvpn-gui
@@ -201,7 +225,10 @@ in {
       # Rust tooling
       cargo
 
-      # Neovim: necessary for treesitter grammars and lua-rocks
+      # Neovim: necessary for treesitter grammars, LSP and lua-rocks
+      gopls
+      golangci-lint
+
       #gcc_multi
       #gnumake
       #cmake
