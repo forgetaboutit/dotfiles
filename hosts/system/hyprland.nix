@@ -15,7 +15,6 @@ in {
     wayland-logout
     wayland-protocols
     wayland-utils
-
   ];
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";

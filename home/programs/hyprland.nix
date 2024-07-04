@@ -39,7 +39,7 @@ in {
 
           input = {
             kb_layout = "us";
-            kb_variant = "alt-intl";
+            kb_variant = "altgr-intl";
             kb_options = "caps:escape";
             numlock_by_default = true;
           };
