@@ -43,6 +43,11 @@
     hyprland = {
       url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     };
+
+    # wezterm nightly
+    wezterm = {
+      url = "github:wez/wezterm?dir=nix";
+    };
   };
 
   outputs = {
@@ -52,6 +57,7 @@
     nixvim,
     disko,
     agenix,
+    wezterm,
     ...
   } @ inputs: let
     inherit (self) outputs;

@@ -1,6 +1,11 @@
-{...}: {
+{
+  pkgs,
+  inputs,
+  ...
+}: {
   programs.wezterm = {
     enable = true;
+    package = inputs.wezterm.packages.${pkgs.system}.default;
     enableZshIntegration = true;
     # Config is written in Lua
     extraConfig = ''
@@ -205,6 +210,8 @@
       config.tab_bar_at_bottom = true
       config.disable_default_key_bindings = true
       config.window_background_opacity = 0.95
+
+      config.enable_wayland = true
 
       -- Wezterm expects a config object
       return config
