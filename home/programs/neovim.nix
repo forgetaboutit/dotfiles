@@ -555,6 +555,27 @@ in {
       # https://github.com/hrsh7th/nvim-cmp/
       cmp = {
         enable = true;
+        settings = {
+          mapping = {
+            "<C-Space>" = ''cmp.mapping.complete()'';
+            "<CR>" = ''cmp.mapping.confirm({ select = true })'';
+          };
+
+          sources = [
+            {
+              name = "nvim_lsp";
+            }
+            {
+              name = "buffer";
+            }
+          ];
+        };
+      };
+
+      # Completion for buffer words
+      # https://github.com/hrsh7th/cmp-buffer
+      cmp-buffer = {
+        enable = true;
       };
 
       # EasyMotion-like navigation
