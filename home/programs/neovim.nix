@@ -581,6 +581,16 @@ in {
       lsp = {
         enable = true;
         servers = {
+          # Golang
+          gopls = {
+            enable = true;
+            autostart = true;
+          };
+          golangci-lint-ls = {
+            enable = true;
+            autostart = true;
+          };
+
           # Lua
           lua-ls = {
             enable = true;
