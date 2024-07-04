@@ -144,7 +144,7 @@
 
       local act = wezterm.action
 
-      config.leader = { key = 'Space', mods = 'CTRL' }
+      config.leader = { key = 'Space', mods = 'SHIFT' }
       config.keys = {
         {
           key = 'h',
