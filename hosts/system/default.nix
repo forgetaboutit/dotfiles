@@ -17,6 +17,14 @@
     firefox
   ];
 
+  services.logind = {
+    hibernateKey = "ignore";
+    hibernateKeyLongPress = "ignore";
+
+    suspendKey = "ignore";
+    suspendKeyLongPress = "ignore";
+  };
+
   programs.gamemode.enable = true;
 
   programs.steam = {
