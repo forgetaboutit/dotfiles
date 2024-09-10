@@ -48,6 +48,11 @@
     wezterm = {
       url = "github:wez/wezterm?dir=nix";
     };
+
+    # wsl
+    wsl = {
+      url = "github:nix-community/NixOS-WSL";
+    };
   };
 
   outputs = {
@@ -58,6 +63,7 @@
     disko,
     agenix,
     wezterm,
+    wsl,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -83,6 +89,7 @@
           agenix.nixosModules.default
           ./hosts/configuration.nix
           ./hosts/users/tau-19
+          ./hosts/modules/shell.nix
         ];
       };
 
@@ -104,6 +111,18 @@
           ./hosts/bootstrap/muhbaasu/configuration.nix
         ];
       };
+
+      wsl = lib.nixosSystem {
+        specialArgs = {
+          inherit inputs outputs;
+        };
+        system = "x86_64-linux";
+        modules = [
+          ./hosts/users/wsl
+          ./hosts/modules/shell.nix
+          wsl.nixosModules.wsl
+        ];
+      };
     };
 
     homeConfigurations = {
@@ -115,6 +134,17 @@
         modules = [
           nixvim.homeManagerModules.nixvim
           ./home/home.nix
+        ];
+      };
+
+      "wsl" = lib.homeManagerConfiguration {
+        pkgs = pkgsFor.x86_64-linux;
+        extraSpecialArgs = {
+          inherit inputs outputs;
+        };
+        modules = [
+          nixvim.homeManagerModules.nixvim
+          ./home/wsl.nix
         ];
       };
     };

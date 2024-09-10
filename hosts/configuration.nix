@@ -138,104 +138,14 @@ in {
       androidStudioPackages.beta
       dotnetCorePackages.sdk_8_0_3xx
       chromium
-      wget
-      git
-      lazygit
       alacritty
       spotify
-      htop
-      btop
       keepass
       ntfs3g
       nvtopPackages.full
 
-      ## Rusty system tools
-      # better `cat`
-      bat
-      # better `cat`
-      ripgrep
-      # better `find`
-      fd
-      # better `ls`
-      lsd
-      # show disk usage
-      dust
-      diskonaut
-      # show languages and LoC
-      tokei
-      # Terminal profiling tool
-      hyperfine
-      # Show network usage per process
-      bandwhich
-      # diff tool
-      delta
-
-      nmap
-
-      sshfs
-
       steam
       discord
-
-      ## Better terminal tooling
-      # Nice shell
-      zsh
-
-      # Fetch-tools showing system info
-      pfetch
-      neofetch
-      fastfetch
-      cpufetch
-
-      # Nice & fast terminal prompt
-      starship
-
-      # Fast file search
-      fzf
-
-      # Tool to show file types
-      file
-
-      # Better cd
-      zoxide
-
-      # Clipboard for Wayland
-      wl-clipboard
-
-      # Clipboard for xserver
-      xclip
-
-      # Screenshot utility
-      shotman
-
-      # JSON query tool
-      jq
-
-      # .zip extractor
-      unzip
-
-      ## Programming
-      # NodeJS
-      #nodejs_21
-      inkscape-with-extensions
-
-      # tree-sitter CLI tools
-      tree-sitter
-
-      # Rust tooling
-      cargo
-
-      # Neovim: necessary for treesitter grammars, LSP and lua-rocks
-      gopls
-      golangci-lint
-
-      #gcc_multi
-      #gnumake
-      #cmake
-      #luajit
-      #luajitPackages.luarocks-nix
-
-      #lua-language-server
     ]);
 
   # globally default to zsh

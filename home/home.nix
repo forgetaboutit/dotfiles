@@ -12,6 +12,8 @@ in {
     home-manager.enable = true;
   };
 
+  neovim-custom.username-undodir = "sammy";
+
   imports = builtins.concatMap import [
     ./programs
   ];
