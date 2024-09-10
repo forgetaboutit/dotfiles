@@ -42,6 +42,8 @@ in {
       ci = "commit";
       st = "status";
       po = "push origin";
+      poff = "push origin --force-with-lease";
+      undo = "reset --soft HEAD^";
     };
 
     signing = {
