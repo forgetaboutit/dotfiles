@@ -218,9 +218,16 @@ in {
         timeoutlen = 0;
       };
 
-      colorscheme = "tokyonight";
+      colorscheme = "catppuccin";
 
       colorschemes = {
+        catppuccin = {
+          enable = true;
+          settings = {
+            flavour = "mocha";
+          };
+        };
+
         tokyonight = {
           enable = true;
         };
