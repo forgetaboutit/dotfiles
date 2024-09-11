@@ -7,10 +7,6 @@ in {
       selection = {
         save_to_clipboard = true;
       };
-
-      window = {
-        opacity = 0.95;
-      };
     };
   };
 }
