@@ -124,6 +124,8 @@
         icon = "Terminal";
       };
     };
+
+  luaSnippetsPath = "${config.xdg.dataHome}/nvim/luasnippets";
 in {
   options = {
     neovim-custom = {
@@ -249,6 +251,40 @@ in {
           mode = ["n"];
           options = {
             desc = "Prev tab";
+          };
+        }
+        # Luasnip
+        {
+          action = helpers.mkRaw ''function() require("luasnip").expand() end'';
+          key = "<C-K>";
+          mode = ["i"];
+          options = {
+            desc = "Expand snippet";
+          };
+        }
+        {
+          action = helpers.mkRaw ''function() require("luasnip").jump(1) end'';
+          key = "<C-L>";
+          mode = ["i" "s"];
+          options = {
+            desc = "Next snippet";
+          };
+        }
+        {
+          action = helpers.mkRaw ''function() require("luasnip").jump(-1) end'';
+          key = "<C-J>";
+          mode = ["i" "s"];
+          options = {
+            desc = "Prev snippet";
+          };
+        }
+        {
+          action = helpers.mkRaw ''function() local ls = require("luasnip"); if ls.choice_active() then ls.change_choice(1) end end'';
+          key = "<C-E>";
+          mode = ["i" "s"];
+          options = {
+            desc = "Change active choice";
+            silent = true;
           };
         }
         # Telescope
@@ -579,6 +615,9 @@ in {
                 name = "nvim_lsp";
               }
               {
+                name = "cmp_luasnip";
+              }
+              {
                 name = "buffer";
               }
             ];
@@ -588,6 +627,10 @@ in {
         # Completion for buffer words
         # https://github.com/hrsh7th/cmp-buffer
         cmp-buffer = {
+          enable = true;
+        };
+
+        cmp_luasnip = {
           enable = true;
         };
 
@@ -648,12 +691,57 @@ in {
           enable = true;
         };
 
+        luasnip = {
+          enable = true;
+
+          settings = {
+            enable_autosnippets = true;
+            store_selection_keys = "<Tab>";
+          };
+
+          fromLua = [
+            {
+              paths = luaSnippetsPath;
+            }
+          ];
+        };
+
         # neorg: org for neovim
         # https://github.com/nvim-neorg/neorg
         neorg = {
           # Disabled for now until https://github.com/NixOS/nixpkgs/pull/302442
           # is fixed
           enable = false;
+
+        orgmode = {
+          enable = true;
+          settings = {
+            org_agenda_files = "~/org/**/*";
+            org_default_notes_file = "~/org/refile.org";
+
+            mappings = {
+              normal = {
+                org_todo ="<leader>cit";
+                org_todo_prev ="<leader>ciT";
+              };
+            };
+          };
+        };
+
+        treesitter = {
+          enable = true;
+        };
+
+        treesitter-context = {
+          enable = true;
+
+          settings = {
+            line_numbers = true;
+          };
+        };
+
+        trim = {
+          enable = true;
         };
 
         # Move inside of words, e.g. with camelCase, kebab-case etc.
