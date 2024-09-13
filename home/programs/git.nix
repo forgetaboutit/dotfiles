@@ -38,12 +38,14 @@ in {
 
     aliases = {
       co = "checkout";
-      sdiff = "diff --staged";
+      cw = "commit -m WIP";
       ci = "commit";
       st = "status";
+      sdiff = "diff --staged";
       po = "push origin";
       poff = "push origin --force-with-lease";
-      undo = "reset --soft HEAD^";
+      undo = "reset --mixed HEAD^";
+      f = "fetch --all --tags --prune --prune-tags --force";
     };
 
     signing = {
