@@ -4,6 +4,13 @@
   config,
   ...
 }: {
+  environment.systemPackages = with pkgs; [
+    whitesur-cursors
+    whitesur-gtk-theme
+    whitesur-icon-theme
+    gnome.gnome-tweaks
+  ];
+
   # Enable the X11 windowing system.
   services.xserver = {
     enable = true;
