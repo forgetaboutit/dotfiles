@@ -25,6 +25,13 @@
     suspendKeyLongPress = "ignore";
   };
 
+  systemd.targets = {
+    sleep.enable = false;
+    suspend.enable = false;
+    hibernate.enable = false;
+    hybrid-sleep.enable = false;
+  };
+
   programs.gamemode.enable = true;
 
   programs.steam = {
