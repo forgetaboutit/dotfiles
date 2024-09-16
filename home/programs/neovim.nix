@@ -677,11 +677,6 @@ in {
             nixd = {
               enable = true;
             };
-
-            # Typescript
-            tsserver = {
-              enable = true;
-            };
           };
         };
 
