@@ -706,13 +706,6 @@ in {
           ];
         };
 
-        # neorg: org for neovim
-        # https://github.com/nvim-neorg/neorg
-        neorg = {
-          # Disabled for now until https://github.com/NixOS/nixpkgs/pull/302442
-          # is fixed
-          enable = false;
-
         orgmode = {
           enable = true;
           settings = {
@@ -721,8 +714,8 @@ in {
 
             mappings = {
               normal = {
-                org_todo ="<leader>cit";
-                org_todo_prev ="<leader>ciT";
+                org_todo = "<leader>cit";
+                org_todo_prev = "<leader>ciT";
               };
             };
           };
@@ -794,12 +787,6 @@ in {
           "DiagnosticSignInformation",
           { texthl = "DiagnosticSignInformation", text = "", numhl = "DiagnosticSignInformation" }
         )
-
-        -- Remove trailing whitespace on save
-        vim.api.nvim_create_autocmd({ "BufWritePre" }, {
-          pattern = { "*" },
-          command = [[%s/\s\+$//e]],
-        })
       '';
     };
   };
