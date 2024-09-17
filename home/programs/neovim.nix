@@ -486,62 +486,6 @@ in {
             desc = "Open netrw";
           };
         }
-        # Navigating should keep the screen centered
-        {
-          action = "<C-f>zz";
-          key = "<C-f>";
-          mode = ["n"];
-        }
-        {
-          action = "<C-b>zz";
-          key = "<C-b>";
-          mode = ["n"];
-        }
-        {
-          action = "<C-u>zz";
-          key = "<C-u>";
-          mode = ["n"];
-        }
-        {
-          action = "<C-d>zz";
-          key = "<C-d>";
-          mode = ["n"];
-        }
-        {
-          action = "<C-u>zz";
-          key = "<C-u>";
-          mode = ["n"];
-        }
-        {
-          action = "<cmd>lnext<CR>zz";
-          key = "<leader>k";
-          mode = ["n"];
-        }
-        {
-          action = "<cmd>lprev<CR>zz";
-          key = "<leader>j";
-          mode = ["n"];
-        }
-        {
-          action = "<cmd>cnext<CR>zz";
-          key = "<C-k>";
-          mode = ["n"];
-        }
-        {
-          action = "<cmd>cprev<CR>zz";
-          key = "<C-j>";
-          mode = ["n"];
-        }
-        {
-          action = "nzzzv";
-          key = "nz";
-          mode = ["n"];
-        }
-        {
-          action = "Nzzzv";
-          key = "Nz";
-          mode = ["n"];
-        }
         # Keep the yanked contents for pasting
         {
           action = ''"_dP'';
