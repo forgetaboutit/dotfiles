@@ -696,6 +696,15 @@ in {
 
       extraPlugins = [
         pkgs.vimPlugins.heirline-nvim
+        (pkgs.vimUtils.buildVimPlugin {
+          name = "org-bullets.nvim";
+          src = pkgs.fetchFromGitHub {
+            owner = "nvim-orgmode";
+            repo = "org-bullets.nvim";
+            rev = "46ae687e22192fb806b5977d664ec98af9cf74f6";
+            hash = "sha256-cRcO0TDY0v9c/H5vQ1v96WiEkIhJDZkPcw+P58XNL9w=";
+          };
+        })
       ];
 
       extraConfigLua = /* Lua */ ''
@@ -978,6 +987,36 @@ in {
             colors = colors
           }
         })
+
+        require("org-bullets").setup {
+          concealcursor = false, -- If false then when the cursor is on a line underlying characters are visible
+            symbols = {
+              -- list symbol
+              list = "•",
+              -- headlines can be a list
+              headlines = { "◉", "○", "✸", "✿" },
+              -- or a function that receives the defaults and returns a list
+              -- headlines = function(default_list)
+              --   table.insert(default_list, "♥")
+              --   return default_list
+              -- end,
+              -- or false to disable the symbol. Works for all symbols
+              -- headlines = false,
+              -- or a table of tables that provide a name
+              -- and (optional) highlight group for each headline level
+              -- headlines = {
+                --   { "◉", "MyBulletL1" }
+                --   { "○", "MyBulletL2" },
+                  --   { "✸", "MyBulletL3" },
+                  --   { "✿", "MyBulletL4" },
+                  -- },
+              checkboxes = {
+                half = { "", "@org.checkbox.halfchecked" },
+                done = { "✓", "@org.keyword.done" },
+                todo = { "˟", "@org.keyword.todo" },
+              },
+            }
+        }
       '';
     };
   };
