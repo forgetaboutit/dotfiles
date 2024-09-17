@@ -477,15 +477,6 @@ in {
             desc = "Set harpoon item 4";
           };
         }
-        # CHADTree
-        {
-          action = "<cmd>CHADopen<CR>";
-          key = "<leader>o";
-          mode = ["n"];
-          options = {
-            desc = "Toggle CHADtree";
-          };
-        }
         # netrw
         {
           action = "<cmd>vim.cmd.Ex<CR>";
@@ -592,12 +583,6 @@ in {
         alpha = {
           enable = true;
           theme = "dashboard";
-        };
-
-        # Nice file trees
-        # https://github.com/ms-jpq/chadtree
-        chadtree = {
-          enable = true;
         };
 
         # Completion plugin
