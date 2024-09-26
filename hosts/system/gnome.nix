@@ -8,7 +8,7 @@
     whitesur-cursors
     whitesur-gtk-theme
     whitesur-icon-theme
-    gnome.gnome-tweaks
+    gnome-tweaks
   ];
 
   # Enable the X11 windowing system.
