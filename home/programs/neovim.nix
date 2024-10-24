@@ -592,13 +592,13 @@ in {
               enable = true;
               autostart = true;
             };
-            golangci-lint-ls = {
+            golangci_lint_ls = {
               enable = true;
               autostart = true;
             };
 
             # Lua
-            lua-ls = {
+            lua_ls = {
               enable = true;
             };
 
