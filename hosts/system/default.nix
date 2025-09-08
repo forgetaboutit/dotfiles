@@ -17,12 +17,12 @@
     firefox
   ];
 
-  services.logind = {
-    hibernateKey = "ignore";
-    hibernateKeyLongPress = "ignore";
+  services.logind.settings.Login = {
+    HandleHibernateKey = "ignore";
+    HandleHibernateKeyLongPress = "ignore";
 
-    suspendKey = "ignore";
-    suspendKeyLongPress = "ignore";
+    HandleSuspendKey = "ignore";
+    HandleSuspendKeyLongPress = "ignore";
   };
 
   systemd.targets = {
