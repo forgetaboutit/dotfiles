@@ -77,8 +77,17 @@
           inputs.neovim-nightly.overlays.default
         ];
       });
+    pkgs = import nixpkgs { system = "x86_64-linux"; };
   in {
     inherit lib;
+
+    devShells.x86_64-linux.default = pkgs.mkShell {
+      packages = with pkgs; [
+        alejandra
+        fd
+        nh
+      ];
+    };
 
     nixosConfigurations = {
       tau-19 = lib.nixosSystem {
