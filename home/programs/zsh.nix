@@ -5,10 +5,17 @@
     enableCompletion = true;
 
     shellAliases = {
+      v = "nvim";
       l = "ls -l";
       sl = "ls";
       # Use zoxide for directory navigation
       cd = "z";
+      y = "yazi";
+      lg = "lazygit";
+      tn = "tmux new-session -s $(basename $(pwd))";
+      ts = "tmux attach-session -t $(tmux list-sessions | awk '{print substr($1, 0, length($1) - 1) }' | fzf)";
+      td = "tmux detach-client";
+      cl = "clear";
     };
 
     history = {
@@ -25,7 +32,7 @@
     # zsh uses scancodes for key bindings. Hint: `sudo showkey -a` shows the
     # currently pressed keys. Alternatively, the Arch wiki is a good source
     # on additional info: https://wiki.archlinux.org/title/Keyboard_input
-    initExtra = ''
+    initContent = ''
       # Ctrl + {Left,Right} navigates between words
       bindkey "^[[1;5D" emacs-backward-word
       bindkey "^[[1;5C" emacs-forward-word
@@ -36,6 +43,8 @@
       bindkey "^[[1;2C" undefined-key
       bindkey "^[[1;3D" undefined-key
       bindkey "^[[1;3C" undefined-key
+
+      export LESS="-S"
     '';
   };
 }
