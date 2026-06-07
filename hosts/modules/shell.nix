@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  inputs,
+  ...
+}: {
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -20,7 +24,6 @@
     lsd
     # show disk usage
     dust
-    diskonaut
     # show languages and LoC
     tokei
     # Terminal profiling tool
@@ -29,6 +32,9 @@
     bandwhich
     # diff tool
     delta
+
+    # awesome devenvs
+    devenv
 
     nmap
 
@@ -40,9 +46,15 @@
 
     # Fetch-tools showing system info
     pfetch
-    neofetch
     fastfetch
     cpufetch
+
+    # Hardware info tooling
+    pciutils
+    lshw
+    usbutils
+    dmidecode
+    nvme-cli
 
     # Nice & fast terminal prompt
     starship
@@ -71,9 +83,6 @@
     # .zip extractor
     unzip
 
-    ## Programming
-    # NodeJS
-    #nodejs_21
     inkscape-with-extensions
 
     # tree-sitter CLI tools
@@ -82,7 +91,6 @@
     # Rust tooling
     cargo
 
-    # Neovim: necessary for treesitter grammars, LSP and lua-rocks
     gopls
     golangci-lint
 
@@ -92,7 +100,9 @@
     #luajit
     #luajitPackages.luarocks-nix
 
-    #lua-language-server
+    lua-language-server
+    bash-language-server
+    nil
     alejandra
   ];
 
