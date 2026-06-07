@@ -29,28 +29,6 @@ in {
     packages = defaultPkgs;
   };
 
-  systemd.user = {
-    # restart service on change
-    startServices = "sd-switch";
-
-    mounts = {
-      storage-box = {
-        Unit = {
-          Description = "Mount storage-box";
-          Wants = "network-online.target";
-          After = "network-online.target";
-        };
-
-        Mount = {
-          What = "u117386@u117386.your-storagebox.de:/";
-          Where = "/home/sammy/StorageBox/";
-          Type = "fuse.sshfs";
-          Options = "x-systemd.automount,_netdev,reconnect,rw,idmap=user,allow_other";
-        };
-      };
-    };
-  };
-
   # notifications about home-manager news
   news.display = "silent";
 }
