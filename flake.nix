@@ -53,6 +53,14 @@
     wsl = {
       url = "github:nix-community/NixOS-WSL";
     };
+
+    # `.luarc.json` is a configuration file for the Lua language server.
+    # We use this flake to generate it from our for our Neovim configuration.
+    gen-luarc = {
+      url = "github:mrcjkb/nix-gen-luarc-json";
+    };
+
+    nixCats.url = "github:BirdeeHub/nixCats-nvim";
   };
 
   outputs = {
@@ -64,20 +72,29 @@
     agenix,
     wezterm,
     wsl,
+    nixCats,
     ...
   } @ inputs: let
     inherit (self) outputs;
     lib = nixpkgs.lib // home-manager.lib;
     systems = ["x86_64-linux"];
+    # Build a custom Neovim package overlay
+    neovim-overlay = import ./hosts/modules/neovim-overlay.nix {inherit inputs;};
     pkgsFor = lib.genAttrs systems (system:
       import nixpkgs {
         inherit system;
         config.allowUnfree = true;
         overlays = [
-          inputs.neovim-nightly.overlays.default
+          #inputs.neovim-nightly.overlays.default
+          neovim-overlay
         ];
       });
-    pkgs = import nixpkgs { system = "x86_64-linux"; };
+    pkgs = import nixpkgs {
+      system = "x86_64-linux";
+      overlays = [
+        neovim-overlay
+      ];
+    };
   in {
     inherit lib;
 
@@ -96,6 +113,7 @@
         };
         modules = [
           agenix.nixosModules.default
+          ./modules/neovim.nix
           ./hosts/configuration.nix
           ./hosts/users/tau-19
           ./hosts/modules/shell.nix
